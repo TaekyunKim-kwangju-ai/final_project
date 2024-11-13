@@ -1,25 +1,134 @@
 <!DOCTYPE html>
 <html lang="ko">
-<body>
-    {% extends 'base.html' %}
-    {% block content %}
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>욱스터 - AI 맞춤형 광고</title>
+    <style>
+      /* 기본 설정 */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, sans-serif;
+      }
+
+      body {
+        background-color: #ffffff;
+        color: #333;
+        padding: 20px;
+      }
+
+      .main-container {
+        width: 100%;
+        max-width: 800px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        margin: 0 auto; /* Center the content horizontally */
+      }
+
+      .main-container .title {
+        font-size: 32px;
+        font-weight: 600;
+        margin-bottom: 20px;
+        color: #000;
+      }
+
+      .main-container .subtitle {
+        font-size: 18px;
+        font-weight: 400;
+        margin-bottom: 40px;
+        color: #555;
+        line-height: 1.6;
+      }
+
+      .content-section {
+        width: 100%;
+        margin-bottom: 60px;
+      }
+
+      .content-section p {
+        font-size: 16px;
+        color: #333;
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .screenshot {
+        width: 100%;
+        max-width: 500px;
+        margin: 20px auto;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .action-button {
+        padding: 12px 24px;
+        background-color: #0071e3;
+        color: #fff;
+        font-size: 16px;
+        font-weight: 500;
+        text-align: center;
+        border: none;
+        border-radius: 8px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      .action-button:hover {
+        background-color: #005bb5;
+      }
+
+      /* 반응형 */
+      @media (max-width: 600px) {
+        .main-container .title {
+          font-size: 26px;
+        }
+
+        .main-container .subtitle {
+          font-size: 16px;
+        }
+
+        .action-button {
+          padding: 10px 20px;
+          font-size: 14px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    {% extends 'base.html' %} {% block content %}
     <div class="main-container">
-        <div class="left-box">
-            <p style="white-space: pre-line;"></p>
-                해당 페이지에서 만든 광고 이미지
-            </p>
-        </div>
-        <div class="right-box">
-            <p style="white-space: pre-line;">
-                안녕하세요. 욱스터입니다.
-                저희 사이트에서는 생성형 AI를 활용한
-                기업 맞춤형 광고를 제작하실 수 있습니다.
-                
-                챗봇들 중 목표에 맞는 챗봇을 선택하시고,
-                원하는 AI 생성 광고를 제작해 가세요!
-            </p>
-        </div>
+      <div class="title">나만의 광고, 이제 쉽게.</div>
+      <div class="subtitle">
+        안녕하세요, 욱스터입니다.<br /><br />
+        창의적인 AI 광고를<br />
+        당신의 비즈니스에 맞춰 제작하세요.
+      </div>
+
+      <!-- 텍스트 챗봇 소개 섹션 -->
+      <div class="content-section">
+        <p>
+          AI 텍스트/이미지 챗봇을 통해 비즈니스의 메시지를 고객에게 전달하세요.
+          <br />
+          빠르고 간편하게 원하는 컨셉을 설정하고, 맞춤형 광고로 고객과 소통할 수
+          있습니다.
+        </p>
+        <img
+          src="{{ url_for('static', filename='images/text_chatbot_screenshot.png') }}"
+          alt="텍스트 챗봇 스크린샷"
+          class="screenshot"
+        />
+      </div>
+
+      <a href="{{ url_for('chat.chat') }}" class="action-button"
+        >지금 시작하기</a
+      >
     </div>
     {% endblock %}
-</body>
+  </body>
 </html>
